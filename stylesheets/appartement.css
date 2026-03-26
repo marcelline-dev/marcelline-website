@@ -1,0 +1,757 @@
+@import url('styles.css');
+
+/* ── PAGE HERO ── */
+.page-hero {
+  height: 58vh;
+  min-height: 380px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  transform: scale(1.03);
+  animation: heroZoom 18s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1.03);
+  }
+  to {
+    transform: scale(1.0);
+  }
+}
+
+.page-hero-content {
+  position: relative;
+  padding: 0 3rem 4rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.9s 0.3s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.breadcrumb {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+
+.breadcrumb a {
+  color: rgba(247, 244, 239, 0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: var(--gold);
+}
+
+.breadcrumb span {
+  color: var(--gold);
+}
+
+.page-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.page-hero h1 em {
+  font-style: italic;
+  color: var(--cream);
+}
+
+.hero-meta {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.meta-pill {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247, 244, 239, 0.75);
+  background: rgba(45, 58, 46, 0.45);
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  padding: 0.35rem 0.9rem;
+}
+
+/* ── MAIN LAYOUT ── */
+.page-body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 3rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* ── DESCRIPTION ── */
+.label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 300;
+  color: var(--pine);
+  margin-bottom: 1.8rem;
+}
+
+.desc-intro {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #4a5748;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(200, 169, 110, 0.25);
+}
+
+/* ── AMENITIES LIST ── */
+.amenities {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.amenity {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(200, 169, 110, 0.15);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.amenity.visible {
+  animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.amenity-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.amenity-text {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #4a5748;
+}
+
+.amenity-text strong {
+  display: block;
+  font-weight: 500;
+  color: var(--pine);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  position: sticky;
+  top: 6rem;
+}
+
+.booking-card {
+  background: var(--pine);
+  padding: 2.5rem 2rem;
+  color: var(--snow);
+  margin-bottom: 1.5rem;
+}
+
+.booking-card .label {
+  color: var(--gold);
+}
+
+.booking-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+
+.booking-card p {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: rgba(247, 244, 239, 0.65);
+  margin-bottom: 1.8rem;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.85rem 2rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  transition: background 0.25s, color 0.25s;
+  width: 100%;
+  text-align: center;
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: var(--pine);
+}
+
+.info-card {
+  background: var(--cream);
+  padding: 2rem;
+  border-top: 2px solid var(--gold);
+}
+
+.info-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--pine);
+  margin-bottom: 1rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(200, 169, 110, 0.2);
+  font-size: 0.82rem;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row .key {
+  color: #6a7868;
+}
+
+.info-row .val {
+  font-weight: 500;
+  color: var(--pine);
+}
+
+/* ── GALLERY ── */
+.gallery-section {
+  background: var(--cream);
+  padding: 5rem 3rem;
+}
+
+.gallery-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-header {
+  margin-bottom: 2.5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 0.75rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.gallery-item:first-child {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease;
+  min-height: 220px;
+}
+
+.gallery-item:first-child img {
+  min-height: 360px;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(45, 58, 46, 0);
+  transition: background 0.3s;
+}
+
+.gallery-item:hover::after {
+  background: rgba(45, 58, 46, 0.12);
+}
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(20, 28, 22, 0.93);
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 88vw;
+  max-height: 85vh;
+  object-fit: contain;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+.lb-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 2rem;
+  color: var(--fog);
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.2s;
+}
+
+.lb-close:hover {
+  color: var(--gold);
+}
+
+.lb-prev, .lb-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  color: var(--fog);
+  font-size: 1.4rem;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.lb-prev {
+  left: 2rem;
+}
+
+.lb-next {
+  right: 2rem;
+}
+
+.lb-prev:hover, .lb-next:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+/* ── CTA STRIP ── */
+.cta-strip {
+  background: var(--pine);
+  padding: 4rem 3rem;
+  text-align: center;
+}
+
+.cta-strip .label {
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+}
+
+.cta-strip h2 {
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+}
+
+.cta-strip p {
+  color: rgba(247, 244, 239, 0.6);
+  font-size: 0.88rem;
+  margin-bottom: 2rem;
+}
+
+.btn-outline-light {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.9rem 2.6rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  transition: background 0.25s, color 0.25s;
+}
+
+.btn-outline-light:hover {
+  background: var(--gold);
+  color: var(--pine);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--text);
+  color: var(--fog);
+  text-align: center;
+  padding: 2.8rem 3rem;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--snow);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 1.2rem 0;
+}
+
+.footer-links a {
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fog);
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+footer small {
+  font-size: 0.7rem;
+  opacity: 0.45;
+  letter-spacing: 0.06em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .page-body {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 3.5rem 1.5rem 4rem;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .amenities {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery-item:first-child {
+    grid-column: 1 / 3;
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    padding: 1.1rem 1.5rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .page-hero-content {
+    padding: 0 1.5rem 3rem;
+  }
+
+  .gallery-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item:first-child {
+    grid-column: auto;
+  }
+
+  .cta-strip {
+    padding: 3rem 1.5rem;
+  }
+}
+
+
+:root {
+  --snow: #f7f4ef;
+  --cream: #ede8df;
+  --pine: #2d3a2e;
+  --spruce: #3e5240;
+  --bark: #7a6248;
+  --fog: #b8bfba;
+  --gold: #c8a96e;
+  --text: #1e2820;
+}
+
+
+
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(30, 40, 32, 0.1) 0%, rgba(30, 40, 32, 0.65) 100%),
+  url('http://marcelline.fr/wp-content/uploads/2024/09/Bessans-la-pomme-de-pin_chambre1-lit-double-1-1024x768.jpg') center/cover no-repeat;
+  transform: scale(1.03);
+  animation: heroZoom 18s ease-in-out infinite alternate;
+}
+
+/* ── ROOMS ── */
+.rooms-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.4rem;
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(200, 169, 110, 0.25);
+}
+
+.room-card {
+  background: var(--cream);
+  border-top: 2px solid var(--gold);
+  padding: 1.4rem 1.2rem;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.room-card.visible {
+  animation: fadeUp 0.55s forwards;
+}
+
+.room-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--pine);
+  margin-bottom: 0.5rem;
+}
+
+.room-card p {
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: #5a6856;
+}
+
+/* ── AMENITIES LIST ── */
+
+
+
+
+
+
+
+
+.info-card {
+  background: var(--cream);
+  padding: 2rem;
+  border-top: 2px solid var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+
+
+
+/* cross-sell card */
+.crosssell-card {
+  background: var(--snow);
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  padding: 1.5rem 1.5rem 1.8rem;
+}
+
+.crosssell-card p.label {
+  margin-bottom: 0.4rem;
+}
+
+.crosssell-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--pine);
+  margin-bottom: 0.4rem;
+}
+
+.crosssell-card small {
+  font-size: 0.78rem;
+  color: #6a7868;
+  display: block;
+  margin-bottom: 1.1rem;
+}
+
+.btn-sm {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid var(--pine);
+  color: var(--pine);
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-sm:hover {
+  background: var(--pine);
+  color: var(--snow);
+}
+
+/* ── GALLERY ── */
+
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  gap: 0.75rem;
+}
+
+/* Feature first image spans 2 cols × 2 rows */
+.gallery-item:first-child {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+
+/* Last portrait image spans 2 rows */
+.gallery-item:nth-child(7) {
+  grid-row: span 2;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 180px;
+  transition: transform 0.55s ease;
+}
+
+
+
+
+
+
+
+.gallery-item:hover::after {
+  background: rgba(45, 58, 46, 0.1);
+}
+
+/* ── LIGHTBOX ── */
+
+
+
+
+
+
+
+
+/* ── CTA STRIP ── */
+
+
+.cta-strip h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+
+
+
+
+
+
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .rooms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .gallery-item:first-child {
+    grid-column: 1 / 3;
+    grid-row: auto;
+  }
+
+  .gallery-item:nth-child(7) {
+    grid-row: auto;
+  }
+}
